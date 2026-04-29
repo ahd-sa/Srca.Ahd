@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة الهلال الأحمر التنظيمية [العهد]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* ========================================================
+           BEYOND GOD TIER - SPATIAL LIQUID GLASS UI (2026)
+           ======================================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
+
+        :root {
+            --base-dark: #000000;
+            --blood-red: #050505;
+            --neon-red: hsl(0, 100%, 50%);
+            --glass-panel: rgba(12, 12, 14, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shine: rgba(255, 255, 255, 0.03);
+            --text-pure: #ffffff;
+            --text-dim: #9aa0a6;
+            --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-core: 0 40px 80px -20px rgba(0,0,0,1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Readex Pro', sans-serif; -webkit-font-smoothing: antialiased; }
+
+        body {
+            background-color: var(--base-dark); height: 100vh; display: flex; color: var(--text-pure);
+            overflow: hidden; padding: 25px; gap: 25px; position: relative; perspective: 2000px;
+        }
+
+        /* ---------------- السحر الحقيقي: خلفية سائلة وتتوهج ---------------- */
+        body::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(20, 0, 0, 1) 0%, var(--base-dark) 50%);
+            z-index: -3;
+        }
+        
+        /* كرات النيون العائمة خلف الزجاج */
+        body::after {
+            content: ''; position: absolute; width: 50vw; height: 50vh;
+            background: var(--blood-red); filter: blur(180px); opacity: 0.15;
+            border-radius: 50%; top: 20%; left: 30%;
+            animation: liquidBreathe 12s var(--ease-apple) infinite alternate; z-index: -2;
+        }
+
+        .ambient-orb {
+            position: absolute; width: 40vw; height: 40vw;
+            background: #ff003c; filter: blur(200px); opacity: 0.08;
+            border-radius: 50%; bottom: -10%; right: -10%;
+            animation: liquidBreathe 15s var(--ease-apple) infinite alternate-reverse; z-index: -2;
+        }
+
+        @keyframes liquidBreathe { 0% { transform: scale(0.8) translate(0, 0); } 100% { transform: scale(1.2) translate(10%, -10%); } }
+
+        /* ---------------- القائمة الجانبية (هولوجرام بلوري) ---------------- */
+        .sidebar {
+            width: 340px; height: 100%;
+            background: var(--glass-panel);
+            backdrop-filter: blur(50px) saturate(200%); -webkit-backdrop-filter: blur(50px) saturate(200%);
+            border: 1px solid var(--glass-border); border-radius: 40px;
+            padding: 50px 30px; display: flex; flex-direction: column; z-index: 10;
+            box-shadow: var(--shadow-core), inset 0 1px 1px rgba(255,255,255,0.15), inset 0 -1px 1px rgba(0,0,0,0.5);
+            position: relative; overflow: hidden;
+        }
+
+        .sidebar-logo { text-align: center; margin-bottom: 60px; position: relative; }
+        .sidebar-logo i { 
+            font-size: 70px; color: var(--neon-red); 
+            filter: drop-shadow(0 0 35px rgba(239, 35, 60, 0.6));
+            background: linear-gradient(135deg, #ff4d4d, #b30000);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: pulseLogo 4s ease-in-out infinite; margin-bottom: 20px;
+        }
+        
+        @keyframes pulseLogo { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 30px rgba(239, 35, 60, 0.6)); } 50% { transform: scale(1.05); filter: drop-shadow(0 0 50px rgba(239, 35, 60, 0.9)); } }
+
+        .sidebar-logo h2 { 
+            font-size: 24px; font-weight: 700; letter-spacing: 0.5px;
+            text-transform: uppercase; color: var(--text-pure);
+        }
+
+        .nav-menu { display: flex; flex-direction: column; gap: 10px; }
+        
+        .nav-item {
+            padding: 20px 25px; border-radius: 24px; display: flex; align-items: center; gap: 20px; 
+            cursor: pointer; transition: var(--ease-apple) 0.6s;
+            color: var(--text-dim); font-weight: 500; font-size: 17px;
+            position: relative; border: 1px solid transparent; overflow: hidden;
+        }
+
+        /* تفاعل الإضاءة عند التحويم (Magnetic Glow) */
+        .nav-item::before {
+            content: ''; position: absolute; width: 0%; height: 100%; top: 0; left: 0;
+            background: linear-gradient(90deg, rgba(239, 35, 60, 0.15), transparent);
+            transition: width 0.6s var(--ease-apple); z-index: -1;
+        }
+        .nav-item:hover::before, .nav-item.active::before { width: 100%; }
+
+        .nav-item:hover, .nav-item.active { 
+            color: var(--text-pure); transform: translateX(-10px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(239, 35, 60, 0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(239, 35, 60, 0.1);
+        }
+        .nav-item.active { border-right: 4px solid var(--neon-red); }
+
+        .nav-item i { font-size: 24px; transition: 0.5s; opacity: 0.7; }
+        .nav-item:hover i, .nav-item.active i { color: var(--neon-red); opacity: 1; filter: drop-shadow(0 0 12px var(--neon-red)); transform: scale(1.1); }
+
+        /* ---------------- المحتوى الرئيسي (المسرح المكاني) ---------------- */
+        .main-content { 
+            flex: 1; height: 100%; border-radius: 40px;
+            background: var(--glass-panel);
+            backdrop-filter: blur(50px) saturate(200%); -webkit-backdrop-filter: blur(50px) saturate(200%);
+            border: 1px solid var(--glass-border);
+            padding: 70px 90px; overflow-y: auto; z-index: 10;
+            box-shadow: var(--shadow-core), inset 0 1px 1px rgba(255,255,255,0.15);
+            scroll-behavior: smooth; position: relative;
+        }
+        
+        .content-section { display: none; }
+        .content-section.active { display: block; animation: spaceReveal 1s var(--ease-apple) forwards; }
+        
+        @keyframes spaceReveal { 
+            from { opacity: 0; transform: translateY(60px) scale(0.95); filter: blur(20px); } 
+            to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } 
+        }
+
+        /* ---------------- العناوين (نحت بالضوء) ---------------- */
+        h1 { 
+            text-align: center; margin-bottom: 70px; font-size: 50px; font-weight: 700; 
+            letter-spacing: -1px; background: linear-gradient(180deg, #fff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.9));
+        }
+
+        .section-header { 
+            display: flex; align-items: center; gap: 20px;
+            font-size: 24px; font-weight: 600; color: var(--text-pure);
+            margin: 70px 0 40px; padding-right: 20px; position: relative;
+        }
+        .section-header::before {
+            content: ''; position: absolute; right: 0; top: 10%; height: 80%; width: 6px;
+            background: var(--neon-red); border-radius: 10px;
+            box-shadow: 0 0 20px var(--neon-red);
+        }
+        .section-header::after {
+            content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(239, 35, 60, 0.4), transparent);
+        }
+
+        /* ---------------- البطاقات (الجاذبية الكهرومغناطيسية) ---------------- */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 35px; perspective: 2000px; }
+        
+        .nav-card, .card, .vehicle-card {
+            background: rgba(20, 20, 25, 0.5);
+            border: 1px solid var(--glass-border); border-radius: 30px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+            transition: var(--ease-apple) 0.8s; position: relative; overflow: hidden;
+            transform-style: preserve-3d; cursor: pointer; text-decoration: none; color: white;
+            backdrop-filter: blur(20px);
+        }
+
+        /* إضاءة تتبع الماوس وهمية بالـ CSS */
+        .nav-card::before, .card::before, .vehicle-card::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 50%);
+            opacity: 0; transition: 0.8s var(--ease-apple); pointer-events: none;
+        }
+
+        .nav-card:hover::before, .card:hover::before, .vehicle-card:hover::before { opacity: 1; transform: translate(10%, 10%); }
+
+        .nav-card:hover, .card:hover, .vehicle-card:hover { 
+            transform: translateY(-15px) scale(1.03); 
+            border-color: rgba(239, 35, 60, 0.5);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.9), 0 0 50px rgba(239, 35, 60, 0.15);
+            background: rgba(30, 25, 30, 0.7);
+        }
+
+        .card { padding: 40px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .card h3 { font-size: 24px; font-weight: 700; margin-bottom: 10px; color: #fff; }
+        .card p { color: var(--text-dim); font-size: 16px; font-weight: 400; }
+        
+        .e-code { 
+            background: rgba(0,0,0,0.6); border: 1px solid var(--glass-border);
+            color: var(--neon-red); padding: 12px 20px; border-radius: 16px; 
+            font-weight: 700; font-family: monospace; font-size: 16px; letter-spacing: 1px;
+            box-shadow: inset 0 0 20px rgba(239, 35, 60, 0.1);
+        }
+
+        /* ---------------- بطاقات المركبات (Showroom Style) ---------------- */
+        .vehicle-card { padding: 0; display: flex; flex-direction: column; }
+        .vehicle-img { 
+            width: 100%; height: 240px; object-fit: cover; 
+            border-bottom: 1px solid var(--glass-border);
+            transition: var(--ease-apple) 1s; filter: grayscale(100%) brightness(0.5);
+        }
+        .vehicle-card:hover .vehicle-img { 
+            filter: grayscale(0%) brightness(1.05); transform: scale(1.08);
+            border-bottom: 1px solid var(--neon-red);
+        }
+        .vehicle-info { padding: 30px; text-align: center; background: rgba(10,10,12,0.95); position: relative; z-index: 2; flex: 1; }
+        .vehicle-info h3 { font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;}
+        .vehicle-info p { font-size: 15px; color: var(--neon-red); font-weight: 500; }
+
+        /* ---------------- المستندات (مجلدات الواقع المعزز) ---------------- */
+        .docs-container { display: flex; flex-direction: column; gap: 30px; max-width: 1200px; margin: 0 auto; }
+        
+        .doc-box {
+            background: rgba(20,20,25,0.4); border: 1px solid var(--glass-border);
+            border-radius: 28px; overflow: hidden; transition: var(--ease-apple) 0.6s; cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        
+        .doc-box:hover { background: rgba(30,30,35,0.6); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .doc-box.open { border-color: rgba(239, 35, 60, 0.4); box-shadow: 0 0 50px rgba(239, 35, 60, 0.1); background: rgba(15,10,15,0.8); }
+        
+        .doc-header { padding: 35px 40px; display: flex; align-items: center; justify-content: space-between; }
+        .doc-header h3 { font-size: 24px; display: flex; align-items: center; gap: 20px; font-weight: 600; color: #fff; }
+        .doc-header i.main-icon { 
+            color: var(--text-pure); font-size: 28px; 
+            background: linear-gradient(135deg, var(--neon-red), var(--blood-red));
+            padding: 18px; border-radius: 20px; box-shadow: 0 10px 20px rgba(239, 35, 60, 0.3);
+        }
+        
+        .doc-body { max-height: 0; overflow: hidden; transition: max-height 1s var(--ease-apple); opacity: 0; }
+        .doc-box.open .doc-body { max-height: 4000px; padding: 40px 50px; border-top: 1px solid rgba(255,255,255,0.05); opacity: 1; }
+        .doc-text-content { white-space: pre-line; line-height: 2.6; color: #b5b5c3; font-size: 18px; font-weight: 400; text-align: justify;}
+        .highlight-red { color: #fff; font-weight: 600; background: rgba(239, 35, 60, 0.8); padding: 2px 12px; border-radius: 8px; box-shadow: 0 4px 10px rgba(239, 35, 60, 0.4); }
+        
+        .chevron { transition: var(--ease-apple) 0.6s; color: var(--text-dim); font-size: 28px; }
+        .doc-box.open .chevron { transform: rotate(180deg); color: var(--neon-red); filter: drop-shadow(0 0 15px var(--neon-red)); }
+
+        /* ---------------- الجداول (كبسولات البيانات العائمة المذهلة) ---------------- */
+        .violation-table, .doc-table { 
+            width: 100%; border-collapse: separate; border-spacing: 0 18px; margin-bottom: 50px; 
+        }
+        
+        .violation-table th, .doc-table th { 
+            background: transparent; color: var(--text-dim); 
+            padding: 10px 35px; text-align: right; font-size: 14px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        
+        .violation-table tr, .doc-table tr { transition: var(--ease-apple) 0.5s; cursor: default; }
+        
+        .violation-table td, .doc-table td { 
+            padding: 30px 35px; font-size: 17px; font-weight: 500; line-height: 1.8; color: var(--text-pure);
+            background: rgba(25,25,30,0.4); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+        }
+        
+        .violation-table td:first-child, .doc-table td:first-child { 
+            border-radius: 0 24px 24px 0; border-right: 1px solid var(--glass-border); 
+        }
+        .violation-table td:last-child, .doc-table td:last-child { 
+            border-radius: 24px 0 0 24px; border-left: 1px solid var(--glass-border); 
+        }
+        
+        .violation-table tr:hover, .doc-table tr:hover { transform: scale(1.02) translateX(-10px); }
+        .violation-table tr:hover td, .doc-table tr:hover td { 
+            background: rgba(40,20,25,0.6); border-color: rgba(239, 35, 60, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .violation-table tr:hover td:first-child, .doc-table tr:hover td:first-child { border-right: 4px solid var(--neon-red); }
+        
+        .v-name { color: #fff; font-weight: 700; width: 45%; font-size: 20px; }
+        .v-penalty { color: #a1a1aa; }
+        .special-note { color: #fff; font-size: 14px; background: rgba(239, 35, 60, 0.8); padding: 6px 14px; border-radius: 10px; font-weight: 600; box-shadow: 0 5px 15px rgba(239,35,60,0.3);}
+
+        /* ---------------- لوحة الترحيب (The Hero Section) ---------------- */
+        .welcome-box { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; }
+        .logo-wrapper {
+            width: 300px; height: 300px; margin: 0 auto 60px; position: relative;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+        .logo-wrapper::before {
+            content: ""; position: absolute; inset: -10px; border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent 0%, rgba(239, 35, 60, 0.8) 50%, transparent 100%);
+            animation: radarSpin 4s linear infinite; filter: blur(15px); z-index: 1;
+        }
+        .logo-wrapper::after {
+            content: ""; position: absolute; inset: 0; border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.1); z-index: 3;
+        }
+        @keyframes radarSpin { 100% { transform: rotate(360deg); } }
+        
+        .main-logo-gif { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; position: relative; z-index: 2; box-shadow: 0 0 80px rgba(0,0,0,0.9); }
+        
+        .quick-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; max-width: 1200px; margin: 70px auto 0; width: 100%; }
+        .quick-nav .nav-card { padding: 50px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .quick-nav .nav-card i { font-size: 55px; margin-bottom: 30px; color: var(--text-dim); transition: 0.6s var(--ease-apple); }
+        .quick-nav .nav-card:hover i { color: var(--text-pure); filter: drop-shadow(0 0 30px var(--neon-red)); transform: scale(1.3) translateY(-15px); }
+        .quick-nav .nav-card h3 { font-size: 26px; font-weight: 700; }
+
+        /* ---------------- Scrollbar (Invisible Tech) ---------------- */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; margin: 40px 0; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 20px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-red); }
+
+        /* ---------------- الخرائط (Cinema Mode) ---------------- */
+        .map-overlay { 
+            display: none; position: fixed; inset: 0; z-index: 9999; 
+            background: rgba(0,0,0,0.95); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
+        }
+        .map-wrapper { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+        #mapZoomImg { 
+            max-width: 90%; max-height: 90%; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); 
+            box-shadow: 0 50px 150px rgba(0,0,0,1), 0 0 80px rgba(239, 35, 60, 0.1); cursor: grab; 
+        }
+        #mapZoomImg:active { cursor: grabbing; }
+        .close-map { 
+            position: absolute; top: 50px; right: 60px; width: 70px; height: 70px; 
+            background: rgba(255,255,255,0.03); border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-size: 40px; color: var(--text-dim); cursor: pointer; transition: var(--ease-apple) 0.6s; z-index: 10000; border: 1px solid var(--glass-border);
+        }
+        .close-map:hover { background: rgba(239, 35, 60, 0.2); border-color: var(--neon-red); color: #fff; transform: rotate(180deg) scale(1.1); box-shadow: 0 0 30px rgba(239, 35, 60, 0.4); }
+
+    </style>
+</head>
+<body>
+    <div class="ambient-orb"></div>
+
+    <aside class="sidebar">
+        <div class="sidebar-logo"><i class="fa-solid fa-house-medical-flag"></i><h2>الهلال الأحمر</h2></div>
+        <nav class="nav-menu">
+            <div id="btn-home" class="nav-item active" onclick="showSection('home')"><i class="fa-solid fa-house"></i><span>الرئيسية</span></div>
+            <div id="btn-leadership" class="nav-item" onclick="showSection('leadership')"><i class="fa-solid fa-id-card-clip"></i><span>القيادة</span></div>
+            <div id="btn-locations" class="nav-item" onclick="showSection('locations')"><i class="fa-solid fa-map-location-dot"></i><span>المواقع</span></div>
+            <div id="btn-vehicles" class="nav-item" onclick="showSection('vehicles')"><i class="fa-solid fa-truck-medical"></i><span>المركبات</span></div>
+            <div id="btn-docs" class="nav-item" onclick="showSection('docs')"><i class="fa-solid fa-file-signature"></i><span>المستندات</span></div>
+            <div id="btn-maps" class="nav-item" onclick="showSection('maps')"><i class="fa-solid fa-map"></i><span>الخرائط</span></div>
+            <div id="btn-violations" class="nav-item" onclick="showSection('violations')"><i class="fa-solid fa-gavel"></i><span>المخالفات</span></div>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        
+        <div id="home" class="content-section active">
+            <div class="welcome-box">
+                <div class="logo-wrapper">
+                    <img src="1c544b8e7d362f87.gif" class="main-logo-gif">
+                </div>
+                <h1>مرحباً بكم في موقع الهلال الأحمر بمدينة العهد</h1>
+                <div class="quick-nav">
+                    <div class="nav-card" onclick="showSection('leadership')"><i class="fa-solid fa-users-gear"></i><h3>القيادة</h3></div>
+                    <div class="nav-card" onclick="showSection('locations')"><i class="fa-solid fa-link"></i><h3>الأنظمة</h3></div>
+                    <div class="nav-card" onclick="showSection('vehicles')"><i class="fa-solid fa-ambulance"></i><h3>المركبات</h3></div>
+                    <div class="nav-card" onclick="showSection('docs')"><i class="fa-solid fa-file-alt"></i><h3>المستندات</h3></div>
+                    <div class="nav-card" onclick="showSection('maps')"><i class="fa-solid fa-map"></i><h3>الخرائط</h3></div>
+                    <div class="nav-card" onclick="showSection('violations')"><i class="fa-solid fa-scale-balanced"></i><h3>المخالفات</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="leadership" class="content-section">
+            <h1 style="text-align: center; margin-bottom: 40px;">القيادة</h1>
+            <div class="section-header">القيادة العليا</div>
+            <div class="grid-container">
+                <div class="card"><div><h3>سليمان العنزي</h3><p>قائد الهلال الأحمر</p></div><div class="e-code">E-001</div></div>
+                <div class="card"><div><h3>محمد العنزي </h3><p>نائب قائد</p></div><div class="e-code">E-002</div></div>
+            </div>
+            <div class="section-header">المساعدين</div>
+            <div class="grid-container">
+                <div class="card"><div><h3>سيف الغامري</h3><p>مساعد قائد</p></div><div class="e-code">E-003</div></div>
+                <div class="card"><div><h3> </h3><p>مساعد قائد</p></div><div class="e-code">E-004</div></div>
+            </div>
+            <div class="section-header">نواب المساعدين</div>
+            <div class="grid-container">
+                <div class="card"><div><h3></h3></div><div class="e-code">E-005</div></div>
+                <div class="card"><div><h3> فادي سلامة</h3></div><div class="e-code">E-006</div></div>
+                <div class="card"><div><h3>عزيز رائد</h3></div><div class="e-code">E-007</div></div>
+                <div class="card"><div><h3> </h3></div><div class="e-code">E-008</div></div>
+                <div class="card"><div><h3> </h3></div><div class="e-code">E-009</div></div>
+            </div>
+            <div class="section-header"> المستشارين </div>
+            <div class="grid-container">
+                <div class="card"><div><h3> </h3></div><div class="e-code">E-O1O</div></div>
+                <div class="card"><div><h3> </h3></div><div class="e-code">E-011</div></div>
+                <div class="card"><div><h3> </h3></div><div class="e-code">E-012</div></div>
+            </div>
+        </div>
+
+        <div id="locations" class="content-section">
+            <h1 style="text-align: center; margin-bottom: 40px;">مواقع الهلال الاحمر [العهد]</h1>
+            <div class="grid-container">
+                <a href="https://docs.google.com/spreadsheets/d/1PqsDjEXXQpHU5XLfKbWlyoM9PgXOxZDAnoQYe91UZzo/edit?gid=0#gid=0" class="card"><h3>جدول الهلال الاحمر</h3><div class="e-code">دخول</div></a>
+                <a href="https://dvni5.github.io/my-ALAHD/" class="card"><h3>موقع نائب العمليات</h3><div class="e-code">دخول</div></a>
+                <a href="https://dvni5.github.io/AHEE/" class="card"><h3>موقع المسمى الميداني</h3><div class="e-code">دخول</div></a>
+            </div>
+        </div>
+
+        <div id="vehicles" class="content-section">
+            <h1 style="text-align: center; margin-bottom: 40px;">أسطول المركبات [العهد]</h1>
+            <div class="grid-container">
+                <div class="vehicle-card"><img src="https://d.top4top.io/p_3700ppkqx1.png" class="vehicle-img"><div class="vehicle-info"><h3>لوسيد الهلال الاحمر متجر</h3><p>جميع الرتب مسموحه</p></div></div>
+                <div class="vehicle-card"><img src="https://b.top4top.io/p_3698igkzz1.png" class="vehicle-img"><div class="vehicle-info"><h3>بوكس شفر</h3><p>مستوى متدرب</p></div></div>
+                <div class="vehicle-card"><img src="https://c.top4top.io/p_3698e7hby2.png" class="vehicle-img"><div class="vehicle-info"><h3>ترانزيت فان</h3><p>مستوى 1</p></div></div>
+                <div class="vehicle-card"><img src="https://d.top4top.io/p_3698w29nh3.png" class="vehicle-img"><div class="vehicle-info"><h3>شفر فان</h3><p>مستوى 2</p></div></div>
+                <div class="vehicle-card"><img src="https://e.top4top.io/p_3698d0y2f4.png" class="vehicle-img"><div class="vehicle-info"><h3>اسعاف شفر</h3><p>مستوى 3</p></div></div>
+                <div class="vehicle-card"><img src="https://f.top4top.io/p_3698cdc225.png" class="vehicle-img"><div class="vehicle-info"><h3> تورس 2015</h3><p>مستوى 3</p></div></div>
+                <div class="vehicle-card"><img src="https://i.top4top.io/p_3700hol8v1.png" class="vehicle-img"><div class="vehicle-info"><h3>هيلكوبترالبحث والانقاذ</h3><p>مستوى 3</p></div></div>
+                <div class="vehicle-card"><img src="https://j.top4top.io/p_37009638r1.png" class="vehicle-img"><div class="vehicle-info"><h3>فوردالبحث والانقاذ</h3><p>مستوى 3</p></div></div>
+                <div class="vehicle-card"><img src="https://k.top4top.io/p_3698mk1vj1.png" class="vehicle-img"><div class="vehicle-info"><h3>تاهو</h3><p>مستوى 4</p></div></div>
+                <div class="vehicle-card"><img src="https://h.top4top.io/p_369897r4x7.png" class="vehicle-img"><div class="vehicle-info"><h3>تورس 2021</h3><p>مستوى 4</p></div></div>
+                <div class="vehicle-card"><img src="https://i.top4top.io/p_3698kk1118.png" class="vehicle-img"><div class="vehicle-info"><h3>فورتشنر</h3><p>مستوى 4 (إشراف)</p></div></div>
+                <div class="vehicle-card"><img src="https://e.top4top.io/p_37008gjk71.png" class="vehicle-img"><div class="vehicle-info"><h3>F150فورد</h3><p>مستوى 4 (إشراف)</p></div></div>
+                <div class="vehicle-card"><img src="https://j.top4top.io/p_3698hlepc9.png" class="vehicle-img"><div class="vehicle-info"><h3>جيب باترول</h3><p>مستوى 5</p></div></div>
+                <div class="vehicle-card"><img src="https://k.top4top.io/p_3698dg78x10.png" class="vehicle-img"><div class="vehicle-info"><h3>اف جي</h3><p>مستوى 6</p></div></div>
+                <div class="vehicle-card"><img src="https://j.top4top.io/p_3698s17py1.png" class="vehicle-img"><div class="vehicle-info"><h3>جمس دينالي</h3><p>مستوى 7</p></div></div>
+                <div class="vehicle-card"><img src="https://k.top4top.io/p_3698ciek12.png" class="vehicle-img"><div class="vehicle-info"><h3>سكويا تايوتا</h3><p>مستوى 8</p></div></div>
+                <div class="vehicle-card"><img src="https://l.top4top.io/p_3698j70qt3.png" class="vehicle-img"><div class="vehicle-info"><h3>دودج</h3><p>مستوى 8</p></div></div>                
+                <div class="vehicle-card"><img src="https://l.top4top.io/p_3700xo6qf1.png" class="vehicle-img"><div class="vehicle-info"><h3>تاهو البحث و الانقاذ</h3><p>مستوى 9</p></div></div>
+                <div class="vehicle-card"><img src="https://b.top4top.io/p_3700weufk1.png" class="vehicle-img"><div class="vehicle-info"><h3>دودج رام</h3><p>مستوى10</p></div></div>
+                <div class="vehicle-card"><img src="https://a.top4top.io/p_3698x0txe4.png" class="vehicle-img"><div class="vehicle-info"><h3>الإسعاف المتنقل</h3><p>مستوى 10</p></div></div>
+            </div>
+        </div>
+
+        <div id="docs" class="content-section">
+            <h1 style="text-align: center; margin-bottom: 40px;">مستندات الهلال الأحمر [العهد]</h1>
+            <div class="docs-container">
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-shield-heart main-icon"></i> أمور يجب فهمها</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body"><div class="doc-text-content">
+<span class="highlight-red">أولاً:</span> بمجرد قبولك في الهلال الأحمر تصبح موظفاً حكومياً ولا يمكنك تغيير وظيفتك أو الذهاب لشراء مركبة أو استعمال مركبتك الشخصية والتجول في المدينة أو الإجرام بشكل عام إلا بطلب إجازة، وسيتم شرح آلية الإجازات في هذه الدورة.
+<span class="highlight-red">ثانياً:</span> يجب عليك الالتزام ببروتوكولات الراديو وتسجيل الدخول والانضمام، وخلاف ذلك سيتم فصلك وتغريمك.
+<span class="highlight-red">ثالثاً:</span> سيتم شرح كل ما تحتاجه في قطاع الهلال الأحمر في هذا الدليل، بعد ذلك سيكون هنالك اختبار نظري للتأكد من فهمك للدليل.
+<span class="highlight-red">رابعاً:</span> بعد قبولك بشكل رسمي يجب عليك فهم أنك لا تمثل نفسك، بل تمثل قطاع الهلال الأحمر كاملاً بمن فيهم القيادات وزملائك، لذلك نرجو منك الالتزام، وفي حال ليس لديك رغبة بالالتزام يجب عليك مغادرة التوظيف حالاً.</div></div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-tower-broadcast main-icon"></i> تردد الموجات</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body"><div class="doc-text-content">
+عموم وحدات لوس سانتوس: تتواجد داخل موجة 13.
+عموم وحدات ساندي وبوليتو: تتواجد داخل موجة 14.
+الموجة 4: الأمن العام (عمليات لوس سانتوس)
+الموجة 5: الأمن العام (عمليات ساندي وبوليتو)
+الموجة 6: الأمن العام (شعبة المرور)
+الموجة 7: أمن الطرق
+الموجة 8، 9، 21: أمن المنشآت
+الموجة 12: الرقابة والتفتيش (في حالة مشاهدة هاك فقط)
+الموجة 13: الهلال الأحمر (وحدات لوس سانتوس)
+الموجة 14: الهلال الأحمر (وحدات ساندي وبوليتو)
+الموجة 15، 16، 25، 26: حرس الحدود
+الموجة 17: الميكانيك 
+الموجة 18: الميكانيك</div></div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-truck-fast main-icon"></i> آلية المباشرة في الميدان</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body"><div class="doc-text-content">
+1️⃣ يجب عليك تسجيل الدخول في دفتر الحضور.
+2️⃣ يجب عليك التوجه إلى روم العمليات لطلب التوجيه والمباشرة بالميدان.
+3️⃣ تسجيل الدخول في المستشفى.
+4️⃣ تغيير المسمى الميداني حسب التوجيه ويكون كالتالي: <span class="highlight-red">التوجيه | الكود الوظيفي</span> (مثال: لام 4 | E-413).
+5️⃣ في حال كتابة كود 7 يكون المسمى الميداني: كود 7 | لام 4 | E-413.
+6️⃣ التوجه لأقرب مستشفى وإخراج المركبة من الكراج المخصص.
+7️⃣ الدخول للموجة.
+8️⃣ التوجه للموقع المحدد لك من العمليات والتوقف عند نقطة ثابتة.</div></div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-file-medical main-icon"></i> أكواد الحالات</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body"><div class="doc-text-content">
+<span class="highlight-red">كود 1:</span> يذكر عند تمام جاهزيتك للمباشرة بالميدان بعد التأكد من الطعام والشراب، توفر العدد الإسعافية وتصليح المركبة ووصولك لموقع توجيهك.
+<span class="highlight-red">كود 3:</span> يذكر للعمليات عند مباشرة موقع يتواجد فيه 3 مسقطين أو أكثر (مسعفين، عساكر، ميكانيك، مواطنين) مع ذكر الموقع.
+<span class="highlight-red">كود 4:</span> يذكر عند حاجتك لطلب إذن بالعبور من نداء إستغاثة والموقع آمن.
+<span class="highlight-red">كود 6:</span> يذكر عند حاجتك للتزود بعدة الإسعافات الأولية، أو لاستلام الترقية أو المركبة الجديدة.
+<span class="highlight-red">كود 7:</span> يذكر عند حاجتك للغفوة أو الابتعاد عن الجهاز لمدة لا تزيد عن 15 دقيقة.
+<span class="highlight-red">كود 8:</span> يذكر عند مشاهدة مسقط يحمل سلاحاً (مسدس، سكين، شوزن) ليمنحك العمليات الإذن بالذهاب لموجة الأمن العام.
+<span class="highlight-red">الحالة 70:</span> تذكر عند وقوع خلل تقني عام أو خاص (إنترنت أو كراش).
+<span class="highlight-red">كود 2:</span> يستخدم عند وجود مسقط في منطقة نائية في حدود وحدات البحث والإنقاذ ولم يكتمل العدد المسموح لتفعيل الدورة.</div></div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-triangle-exclamation main-icon"></i> تعليمات هامة</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body"><div class="doc-text-content">
+• عدم إنعاش المصابين في منتصف الشارع، يجب حملهم إلى أقرب رصيف.
+• عدم تمرير الاستفسارات العامة من خلال الموجة (التوجه لروم العمليات).
+• يجب الإطلاع على التحديثات الهامة للهلال الأحمر قبل الدخول والمباشرة.
+• في حال مباشرتك للحالات المسقطة على أطراف نداء الاستغاثة بدون توجيه، يعتبر مخالفة.
+• يمنع منعاً باتاً وضع أي نوع من التفاعل (الريأكشن) على جميع تحديثات القطاع.
+• لا يحق لأي قطاع آخر أن يأمرك بدخول نداء الاستغاثة.
+• تسجيل دخولك دون تشغيل التصوير يحملك كامل المسؤولية.
+• يمنع قيادة مركبتك الخاصة تحت أي ظرف دون طلب إجازة.
+• أولوية الإنعاش للمسقطين: <span class="highlight-red">مسعف - عسكري - ميكانيكي - مواطن.</span>
+• ممنوع المباشرة في موقع إطلاق النار ومغادرة الموقع فوراً.
+• يمنع منشن @الهلال الأحمر أو @here أو @everyone.</div></div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-door-open main-icon"></i> نظام الاستقالات</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body"><div class="doc-text-content">
+<span class="highlight-red">لا يسمح لحاملي رتبة متدرب أو مستوى 1 بطلبها</span>
+في حال الإصرار على الاستقالة وأنت تحمل رتبة <span class="highlight-red">متدرب</span> يترتب عليها:
+غرامة بقيمة $1,000,000 و منع التوظيف لمدة 14 يوم للوظائف المعتمدة
+وفي حال الإصرار على الاستقالة وأنت تحمل رتبة <span class="highlight-red">مستوى 1</span> يترتب عليها :
+غرامة بقيمة $500,000 و منع التوظيف لمدة 7 يوم للوظائف المعتمدة</div></div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-circle-exclamation main-icon"></i> المخالفات الشائعة</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body"><div class="doc-text-content">
+• القيادة الغير واقعية مثل ( السرعة - تفحيط - عكس سير - طلوع اوف رود - الخ ) .
+• مقاطعة البلاغات عدم ترك 5 ثوان بين بلاغ وآخر.
+• تشويه سمعة القطاع بأي شكل من الأشكال.
+• عدم كتابة أو تحديث المسمى في الـ FiveM.
+• مباشرة في موقع غير الموجه لك.
+• التواجد في روم العمليات أكثر من 3 دقائق.
+• عدم الحضور للإستدعاء.
+• دخول نداء استغاثة أو استنفار أمني بدون إذن.
+• مباشرة في موقع غير امن.
+• الأفك او كود 7 ( أكثر من 10 دقائق ).
+• إهمال المركبة.
+• مباشرة بدون توجيه.
+• إركاب مواطن في مركبة الإسعاف .
+• التهرب الوظيفي.
+• تدبيل الإنعاش.
+• الأسلوب الغير اللائق.
+• الخروج وحدة مشتركة.
+• المباشرة في البحار والجبال.</div></div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-calendar-check main-icon"></i> آلية التواجد والترشيح</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body"><div class="doc-text-content">
+<span class="highlight-red">آلية احتساب ايام التواجد:</span>
+• يجب ان يكون بين تسجيل الدخول والخروج في اليوم الواحد ساعة على الأقل.
+• يجب تسجيل الدخول والخروج في دفتر الحضور ساعة كاملة على الاقل.
+• في حال نسيان تسجيل الدخول او الخروج لن يتم احتساب اليوم.
+<span class="highlight-red">تنويه:</span> في حال عدم تسجيل الدخول او الخروج 3 ايام متتالية في دفتر الحضور يترتب على ذلك مخالفة الفصل من القطاع.
+
+<span class="highlight-red">آلية اعلان ترشيح الترقيات:</span>
+• يتم استقبال طلبات الترشيح حسب اعلان الترشيح في روم ( إعلانات الدورات ) في يوم الثلاثاء.
+• ويتم الإعلان عن الأسماء في يوم الخميس.
+
+<span class="highlight-red">ضوابط الترشيح:</span>
+• في حال حضور مرشح غير مستوفي للشروط تصدر له ( غرامة وإنذار ).
+• يمكنك فتح تكت ( تظلم من ترقية ) في حال عدم قدرتك على الحضور خلال فترة الدورة لأسباب طارئة بشرط اتمامك كافة الشروط.
+• <span class="highlight-red">تحذير:</span> في حال فتح تكت تظلم من ترقية دون اكماللك لكافة الشروط سيحرر لك مخالفة فورية.
+• <span class="highlight-red">تنويه:</span> يجب على جميع الراغبين بحضور الترشيح والترقية حضور دورة العمليات المقامة كل يوم جمعة.</div></div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-plane-departure main-icon"></i> نظام الإجازات</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body">
+                        <div class="doc-text-content">
+ <span class="highlight-red">إجازات داخلية:</span> لا يسمح لحاملي رتبة متدرب بطلبها
+ <span class="highlight-red">إجازات داخلية:</span> لحاملي رتبة مستوى 1 فأعلى. يجب سداد المخالفات قبل الطلب.
+<span class="highlight-red">إجازات داخلية:</span> يتقدم المسعف بطلبها في حالة رغبته بالتواجد كمواطن لفترة محدودة وآلية معينة .
+<span class="highlight-red">إجازات خارجية:</span> للغياب من 3 إلى 21 يوماً متواصلة خارج المقاطعة.
+
+يمكن لحاملي رتبة مستوى 1 فأعلى طلبها .
+
+يجب سداد المخالفات إن وجدت أثناء طلبك للإجازة .
+
+لا يمكنك طلب إجازة مرتين في نفس اليوم أو تمديد الإجازة
+
+{ بين كل إجازة 24 ساعة } .
+
+يمكن طلبها في الأيام التالية { الأحد - الثلاثاء - الجمعة } بشروط وهي :
+
+توفر 20 وحده في الميدان { دون احتساب المشرفين و القيادة } .
+
+يمكن طلبها في الأيام التالية { السبت - الاثنين - الأربعاء - الخميس } بشروط وهي :
+
+اتمام 3 ساعات عمل متتالية في نفس اليوم + توفر 20 وحده في الميدان { دون احتساب المشرفين و القيادة } .
+                        </div>
+                        <table class="doc-table">
+                            <thead>
+                                <tr><th>المستوى</th><th>يتجدد الرصيد كل يوم أحد الساعة 12 ص</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>مستوى 1</td><td>14 ساعة</td></tr>
+                                <tr><td>مستوى 2</td><td>16 ساعة</td></tr>
+                                <tr><td>مستوى 3</td><td>18 ساعة</td></tr>
+                                <tr><td>مستوى 4</td><td>20 ساعة</td></tr>
+                                <tr><td>مستوى 5</td><td>22 ساعة</td></tr>
+                                <tr><td>مستوى 6</td><td>24 ساعة</td></tr>
+                                <tr><td>مستوى 7</td><td>26 ساعة</td></tr>
+                                <tr><td>مستوى 8</td><td>28 ساعة</td></tr>
+                                <tr><td>مستوى 9</td><td>30 ساعة</td></tr>
+                                <tr><td>مستوى 10</td><td>35 ساعة</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-arrow-up-right-dots main-icon"></i> نظام الترقيات</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body">
+                        <table class="doc-table">
+                            <thead>
+                                <tr><th>الرتبة</th><th>متطلبات الترقية حسب رتبتك</th><th>زمن الترقية</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>من متدرب الى مستوى 1</td><td>7 ايام من تعيينك + 5 ايام تواجد + اجتياز دورة العمليات</td><td>7 ايام من تاريخ تعينك</td></tr>
+                                <tr><td>من مستوى 1 الى مستوى 2</td><td>10 يوم تواجد + المشاركة في 15 تقرير عمليات (اجتياز اختبار الترشيح للمستوى)</td><td>14 ايام من تاريخ اخر ترقية</td></tr>
+                                <tr><td>من مستوى 2 الى مستوى 3</td><td>15 يوم تواجد + المشاركة في 25 تقرير عمليات (اجتياز اختبار الترشيح للمستوى)</td><td>21 ايام من تاريخ اخر ترقية</td></tr>
+                                <tr><td>من مستوى 3 الى مستوى 4</td><td>20 يوم تواجد + المشاركة في 30 تقرير عمليات (اجتياز اختبار الترشيح للمستوى)</td><td>28 ايام من تاريخ اخر ترقية</td></tr>
+                                <tr><td>مستوى 4</td><td>ترشيح  (الإشراف الميداني) عمر 18 فما فوق + (اجتياز اختبار الاشراف الميداني)</td>
+                                <tr><td>من مستوى 4 الى مستوى 5</td><td>150 ساعة مباشره</td><td>40 يوم من تاريخ اخر ترقية</td></tr>
+                                <tr><td>من مستوى 5 الى مستوى 6</td><td>170 ساعة مباشره</td><td>45 يوم من تاريخ اخر ترقية</td></tr>
+                                <tr><td>من مستوى 6 الى مستوى 7</td><td>200 ساعة مباشره</td><td>50 يوم من تاريخ اخر ترقية</td></tr>
+                                <tr><td>من مستوى 7 الى مستوى 8</td><td>ترشيح القيادة ( الإشراف العام )</td>
+                                <tr><td>من مستوى 8 الى مستوى 9</td><td>ترشيح القيادة</td>
+                                <tr><td>من مستوى 9 الى مستوى 10</td><td>ترشيح القيادة</td>
+                            </tbody>
+                        </table>
+                        <p class="highlight-red">ملاحظة : الشروط وزمن الترقية قابلة للتعديل.</p>
+                    </div>
+                </div>
+
+                <div class="doc-box" onclick="this.classList.toggle('open')">
+                    <div class="doc-header"><h3><i class="fa-solid fa-star-of-life main-icon"></i> نظام ترقيات المعتمدين</h3><i class="fa-solid fa-chevron-down chevron"></i></div>
+                    <div class="doc-body">
+                        <table class="doc-table">
+                            <thead>
+                                <tr><th>الترقية</th><th>متطلباتها</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>من متدرب الى مستوى 1</td><td>(دورة العمليات + اجتياز اختبار الترشيح للمستوى)3 ايام تواجد </td></tr>
+                                <tr><td>من مستوى 1 الى مستوى 2</td><td> (اجتياز اختبار الترشيح للمستوى)7 ايام تواجد </td></tr>
+                                <tr><td>من مستوى 2 الى مستوى 3</td><td> (اجتياز اختبار الترشيح للمستوى)12 ايام تواجد </td></tr>
+                                <tr><td>من مستوى 3 الى مستوى 4</td><td> (اجتياز اختبار الترشيح للمستوى)14 ايام تواجد </td></tr>
+                                <tr><td>مستوى الاشراف الميداني4 </td><td> (اجتياز اختبار الاشراف الميداني) 18يوم تواجد من اخر ترقية</td></tr>                                
+                                <tr><td>من مستوى 4 الى مستوى 5</td><td>21 يوم تواجد + التواجد في 30 تقرير</td></tr>
+                                <tr><td>من مستوى 5 الى مستوى 6</td><td>25 يوم تواجد + التواجد في 35 تقرير</td></tr>
+                                <tr><td>من مستوى 6 الى مستوى 7</td><td>28 يوم تواجد + التواجد في 40 تقرير</td></tr>
+                                <tr><td>من مستوى 7 الى مستوى 8</td><td> ( الإشراف العام )28 يوم تواجد + 40 تقرير اشراف</td></tr>
+                                <tr><td>من مستوى 8 الى مستوى 9</td><td>ترشيح من القيادة</td></tr>
+                                <tr><td>من مستوى 9 الى مستوى 10</td><td>ترشيح من القيادة</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="highlight-red">ملاحظة : الشروط وزمن الترقية قابلة للتعديل.</p>
+                        <p class="highlight-red">  ( الإشراف العام )ملاحظة : لن يتم ترقيتك في حال لم يتم ترشيحك من قبل القيادة</p>
+                        <p class="highlight-red"> تم اعفاء جميع المعتمدين من التقارير للعمليات و نائب العمليات من متطلبات الترقية لكن لا يحق لأي شخص يحمل دوره العمليات رفض الاستلام متى ما استدعت الحاجة لذلك</p>
+                        <p class="highlight-red">ملاحظة : لن يتم ترقيتك في حال كان عليك تأخير ترقية أو نقص في عدد  ايام التواجد</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="maps" class="content-section">
+            <h1 style="text-align: center; margin-bottom: 40px;">الخرائط</h1>
+            <div class="grid-container">
+                <div class="card" style="padding: 10px; cursor: pointer;" onclick="viewMap('https://h.top4top.io/p_3700vr5rs1.png')">
+                    <img src="https://h.top4top.io/p_3700vr5rs1.png" style="width:100%; height:200px; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="card" style="padding: 10px; cursor: pointer;" onclick="viewMap('https://i.top4top.io/p_3700bt2402.png')">
+                    <img src="https://i.top4top.io/p_3700bt2402.png" style="width:100%; height:200px; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="card" style="padding: 10px; cursor: pointer;" onclick="viewMap('https://j.top4top.io/p_3700pxmy53.png')">
+                    <img src="https://j.top4top.io/p_3700pxmy53.png" style="width:100%; height:200px; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="card" style="padding: 10px; cursor: pointer;" onclick="viewMap('https://k.top4top.io/p_37001bfj34.png')">
+                    <img src="https://k.top4top.io/p_37001bfj34.png" style="width:100%; height:200px; object-fit:cover; border-radius:8px;">
+                </div>
+            </div>
+        </div>
+
+        <div id="violations" class="content-section">
+            <h1 style="text-align: center; margin-bottom: 40px;">لائحة المخالفات والجزاءات التفصيلية</h1>
+
+            <div class="section-header">مخالفات الفصل</div>
+            <table class="violation-table">
+                <thead><tr><th>نوع المخالفة</th><th>الجزاء المقرر</th></tr></thead>
+                <tbody>
+<tr><td class="v-name">استقالة فترة تدريب</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم</td></tr>
+                    <tr><td class="v-name">صدم المتعمد لغرض الانعاش</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + نهائي من الهلال الاحمر</td></tr>
+                    <tr><td class="v-name">عدم احترام القيادة / المشرفين <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم</td></tr>
+                    <tr><td class="v-name">استقالة قبل الرجوع من الاجازة الداخلية</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم</td></tr>
+                    <tr><td class="v-name">تهرب وظيفي</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم</td></tr>
+                    <tr><td class="v-name">تخريب سيناريو</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + نهائي من الهلال الاحمر</td></tr>
+                    <tr><td class="v-name">اعتراض على قرار قيادة</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم</td></tr>
+                    <tr><td class="v-name">سب وقذف</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + نهائي من الهلال الاحمر + باند نهائي</td></tr>
+                    <tr><td class="v-name">اللعن بأي شكل من الأشكال</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + نهائي من الهلال الاحمر + باند 14 يوم</td></tr>
+                    <tr><td class="v-name">تدبيل انعاش</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + نهائي من الهلال الاحمر + باند نهائي وتصفير</td></tr>
+                    <tr><td class="v-name">تخريب بوظيفة الهلال الاحمر</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + نهائي من الهلال الاحمر + باند 14 يوم</td></tr>
+                    <tr><td class="v-name">الاجرام بوظيفة الهلال الاحمر</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + نهائي من الهلال الاحمر + باند 14 يوم</td></tr>
+                    <tr><td class="v-name">استخدام الرتبة للمصلحة الشخصية <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + نهائي من الهلال الاحمر</td></tr>
+                    <tr><td class="v-name">عدم العودة للوظيفة بعد انتهاء اجازة خارجية <span class="special-note">(خاص بمسؤول الترقيات)</span></td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 5 ايام</td></tr>
+                    <tr><td class="v-name">دخول غير شرعي</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + نهائي من الهلال الاحمر</td></tr>
+                    <tr><td class="v-name">تلفيت من الديسكورد</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم + باند 3 ايام</td></tr>
+                    <tr><td class="v-name">عدم تواجد <span class="special-note">(خاص بمسؤول الترقيات)</span></td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم</td></tr>
+                    <tr><td class="v-name">عدم تواجد <span class="special-note">(المشرفين)</span></td><td class="v-penalty">انذار نهائي بكسر رتبة + غرامة بقيمة 1,000,000</td></tr>
+                    <tr><td class="v-name">كثرة المخالفات</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم</td></tr>
+                    <tr><td class="v-name">رتبة عليا في مدينة اخرى</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم</td></tr>
+                    <tr><td class="v-name">مخالفة قوانين المقاطعة</td><td class="v-penalty">فصل + غرامة بقيمة 1,000,000 + منع من التوظيف 14 يوم</td></tr>
+                </tbody>
+            </table>
+
+            <div class="section-header">مخالفات 750 الف</div>
+            <table class="violation-table">
+                <thead><tr><th>نوع المخالفة</th><th>الجزاء المقرر</th></tr></thead>
+                <tbody>
+                    <tr><td class="v-name">صدم مواطنين بشكل متعمد ومستمر</td><td class="v-penalty">كسر رتبة + انذار نهائي بالفصل + غرامة مليون</td></tr>
+                    <tr><td class="v-name">تشويه سمعة الهلال الاحمر بأي شكل من الأشكال</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 750 الف</td></tr>
+                    <tr><td class="v-name">الانتداب بدون اخذ الاذن <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">انذار اول + غرامة بقيمة 750 الف</td></tr>
+                    <tr><td class="v-name">حضور توظيف بدون اخذ الاذن من القيادة</td><td class="v-penalty">انذار اول + غرامة بقيمة 750 الف</td></tr>
+                    <tr><td class="v-name">مضايقة الكادر النسائي بأي شكل من الأشكال</td><td class="v-penalty">كسر رتبة + انذار اول + غرامة بقيمة 750 الف</td></tr>
+                    <tr><td class="v-name">الاستهبال بالميدان <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">كسر رتبة + انذار اول + غرامة بقيمة 750 الف</td></tr>
+                    <tr><td class="v-name">حمل ممنوعات واسلحة</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 750 الف + سحب الممنوعات</td></tr>
+                    <tr><td class="v-name">المباشرة في المجرمين قبل العساكر</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 750 الف</td></tr>
+                    <tr><td class="v-name">رفض استلام مهام طاقم العمليات</td><td class="v-penalty">انذار اول + سحب رول العمليات + تأخير ترقية + غرامة بقيمة 750 الف</td></tr>
+                </tbody>
+            </table>
+
+            <div class="section-header">مخالفات 500 الف</div>
+            <table class="violation-table">
+                <thead><tr><th>نوع المخالفة</th><th>الجزاء المقرر</th></tr></thead>
+                <tbody>
+                    <tr><td class="v-name">مباشرة في مركبة غير مخصصة لك</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">الاستقبال في روم العمليات</td><td class="v-penalty">انذار اول + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">الدخول لروم الكادر النسائي <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">انذار اول + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">تظليل مركبة حكومية</td><td class="v-penalty">انذار اول + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">الدخول لموجة الرقابة</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">دخول برنامج الدولة لطلب الانعاش وقت الاجازة <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">المباشرة في المجرمين بدون اذن العساكر (داخل الميناء)</td><td class="v-penalty">انذار اول + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">عدم الإلتزام بقوانين الإجازة الداخلية <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">انذار اول + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">التوجه لكراج التعديل والتزويد بدون اذن</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">التوجه لمعرض السيارات بدون اذن</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">المباشرة في موقع غير آمن</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">اهانة اي شخص بالمقاطعة</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">التلاعب في دفتر الحضور <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">التلاعب على مسؤولين الترقيات <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">التدخل في الشؤون الادارية</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">الرد بطريقة غير مناسبة بالموجة</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">كثرة الشكاوي عليه</td><td class="v-penalty">انذار نهائي بالفصل + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">التأخر في العودة للوظيفة بعد انتهاء الاجازة الداخلية</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">سجن رقابي بوظيفة الهلال الاحمر <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">الافك او الغفوة اكثر من 15 دقيقة</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">الخروج مشتركة <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">انذار أول + كسر رتبة + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">عدم طلب كود 3 <span class="special-note">(يطبق على المشرفين)</span></td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">اسلوب غير لائق</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">التدخل في شؤون القطاعات الاخرى</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                    <tr><td class="v-name">دخول استنفار أمني أو المباشرة بدون اذن</td><td class="v-penalty">انذار اول + تأخير ترقية + غرامة بقيمة 500 الف</td></tr>
+                </tbody>
+            </table>
+
+            <div class="section-header">مخالفات 300 الف</div>
+            <table class="violation-table">
+                <thead><tr><th>نوع المخالفة</th><th>الجزاء المقرر</th></tr></thead>
+                <tbody>
+                    <tr><td class="v-name">التأخير بالوصول للمسقطين</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">مخالفة قوانين التكت</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">عدم اعطاء الكود الميداني</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">عدم المباشرة بعد مرور 5 دقائق من طلب كود 8</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">عدم التزام ببروتوكولات الراديو</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">اثارة الجدل في الشات العام</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">ازعاج منسوبي الشؤون الإدارية</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">رفض توجيه العمليات</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">مباشرة بدون تسجيل دخول (دفتر الحضور او عند العمليات او بالمستشفى)</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">مباشرة في موقع غير موجه لك</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">المباشرة بدون الدخول للموجة</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">عدم تسليم العمليات عند الخروج</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">منشن الرقابة في رسائل الهلال الاحمر او التكتات</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">اهمال الراديو</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">عدم الإلتزام في قوانين الهلال الأحمر</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">عدم طلب كود 8</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">الكتابة أثناء المنع او التنقيط</td><td class="v-penalty">انذار اول + غرامة بقيمة 300 الف</td></tr>
+                    <tr><td class="v-name">الاعتراض على مخالفة صحيحة</td><td class="v-penalty">انذار اول + غرامة دبل المخالفة الاساسية</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="mapModal" class="map-overlay" onclick="handleOutsideClick(event)">
+        <span class="close-map" onclick="closeMap()">&times;</span>
+        <div class="map-wrapper">
+            <img id="mapZoomImg" src="" onwheel="doZoom(event)">
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            document.getElementById(sectionId).classList.add('active');
+            const activeBtn = document.querySelector(`[onclick="showSection('${sectionId}')"]`);
+            if(activeBtn) activeBtn.classList.add('active');
+        }
+
+        /* برمجة الخرائط */
+        let currentScale = 1;
+        let isPanning = false;
+        let startX, startY, x = 0, y = 0;
+
+        function viewMap(src) {
+            const modal = document.getElementById('mapModal');
+            const img = document.getElementById('mapZoomImg');
+            modal.style.display = 'block';
+            img.src = src;
+            currentScale = 1; x = 0; y = 0;
+            updateTransform();
+        }
+
+        function closeMap() {
+            document.getElementById('mapModal').style.display = 'none';
+        }
+
+        function updateTransform() {
+            const img = document.getElementById('mapZoomImg');
+            img.style.transform = `translate(${x}px, ${y}px) scale(${currentScale})`;
+        }
+
+        function doZoom(e) {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.8 : 1.2;
+            currentScale *= delta;
+            currentScale = Math.min(Math.max(0.5, currentScale), 8);
+            updateTransform();
+        }
+
+        const img = document.getElementById('mapZoomImg');
+        img.onmousedown = (e) => {
+            isPanning = true;
+            startX = e.clientX - x;
+            startY = e.clientY - y;
+        };
+        window.onmousemove = (e) => {
+            if (!isPanning) return;
+            x = e.clientX - startX;
+            y = e.clientY - startY;
+            updateTransform();
+        };
+        window.onmouseup = () => isPanning = false;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeMap();
+        });
+
+        function handleOutsideClick(e) {
+            if (e.target.id === 'mapModal' || e.target.className === 'map-wrapper') {
+                closeMap();
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
